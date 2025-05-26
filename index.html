@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dictionary App</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="dark">
+
+  <header>
+    <div class="controls">
+      <div class="font-dropdown" id="fontDropdown">
+        <button class="font-toggle" id="fontToggle">Sans Serif</button>
+        <ul class="font-options hidden" id="fontOptions">
+          <li data-font="sans-serif">Sans Serif</li>
+          <li data-font="serif">Serif</li>
+          <li data-font="monospace">Mono</li>
+        </ul>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="theme-toggle">
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle" checked />
+          <span class="slider"></span>
+        </label>
+        <span class="moon-icon">🌙</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Write a word in English" autocomplete="off"/>
+        <button id="search-btn">🔍</button>
+      </div>
+      <section id="result-container"></section>
+    </div>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
