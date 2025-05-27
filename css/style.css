@@ -311,3 +311,65 @@ body.light .font-toggle {
 body.light .font-toggle::after {
   color: #a259ff;
 }
+
+.suggestion-box {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  background: var(--screen-bg, #222);
+  color: var(--text, white);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  padding: 0.5rem 0;
+  z-index: 1000;
+}
+
+.suggestion-box li {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.suggestion-box li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.suggestion-box {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: #1e1e1e;
+  color: white;
+  list-style: none;
+  border-radius: 12px;
+  overflow-y: auto;
+  max-height: 240px;
+  z-index: 10;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  padding: 0.4rem 0;
+  font-size: 1rem;
+}
+
+.suggestion-box li {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.suggestion-box li:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hidden {
+  display: none;
+}

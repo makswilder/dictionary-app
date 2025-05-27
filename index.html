@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body class="dark">
+
   <header>
     <div class="controls">
       <div class="font-dropdown" id="fontDropdown">
@@ -33,8 +34,11 @@
   <main>
     <div class="container">
       <div class="search-container">
-        <input type="text" id="search-input" placeholder="Write a word in English" autocomplete="off"/>
-        <button id="search-btn">🔍</button>
+        <div class="search-wrapper">
+          <input type="text" id="search-input" placeholder="Write a word in English" autocomplete="off"/>
+          <button id="search-btn"></button>
+          <ul id="suggestion-box" class="suggestion-box hidden"></ul>
+        </div>
       </div>
       <section id="result-container"></section>
     </div>
