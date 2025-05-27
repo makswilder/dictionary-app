@@ -2,13 +2,11 @@ const fontDropdown = document.getElementById('fontDropdown');
 const fontToggle = document.getElementById('fontToggle');
 const fontOptions = document.getElementById('fontOptions');
 
-// Toggle dropdown and triangle
 fontToggle.addEventListener('click', () => {
   fontOptions.classList.toggle('hidden');
   fontToggle.classList.toggle('active'); 
 });
 
-// Select a font
 fontOptions.querySelectorAll('li').forEach(option => {
   option.addEventListener('click', () => {
     const selectedFont = option.dataset.font;
@@ -19,7 +17,6 @@ fontOptions.querySelectorAll('li').forEach(option => {
   });
 });
 
-// Close dropdown if clicking outside
 document.addEventListener('click', (e) => {
   if (!fontDropdown.contains(e.target)) {
     fontOptions.classList.add('hidden');

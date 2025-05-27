@@ -10,10 +10,8 @@ const searchInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
 const resultContainer = document.getElementById('result-container');
 
-// Init theme toggle
 initThemeToggle(toggle, body);
 
-// Search
 searchBtn.addEventListener('click', handleSearch);
 searchInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') handleSearch();
