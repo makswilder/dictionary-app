@@ -1,12 +1,12 @@
-export function initThemeToggle(toggleEl, body) {
-  toggleEl.addEventListener('change', () => {
-    body.classList.toggle('light');
-    localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark');
+export function initThemeToggle(toggle, body) {
+  toggle.addEventListener('change', () => {
+    body.classList.toggle('light', !toggle.checked);
+    localStorage.setItem('theme', toggle.checked ? 'dark' : 'light');
   });
 
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light') {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
     body.classList.add('light');
-    toggleEl.checked = false;
+    toggle.checked = false;
   }
 }

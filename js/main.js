@@ -1,34 +1,35 @@
 import { fetchWordData } from './api.js';
-import { initThemeToggle } from './theme.js';
-import { saveToHistory } from './storage.js';
 import { renderWord, playAudio } from './dom.js';
-import './font.js';
+import { initThemeToggle } from './theme.js';
+import { initFontSelector } from './font.js';
+import { saveToHistory } from './storage.js';
 
-const body = document.body;
-const toggle = document.getElementById('theme-toggle');
-const searchInput = document.getElementById('search-input');
-const searchBtn = document.getElementById('search-btn');
+const input = document.getElementById('search-input');
+const button = document.getElementById('search-btn');
 const resultContainer = document.getElementById('result-container');
 
-initThemeToggle(toggle, body);
-
-searchBtn.addEventListener('click', handleSearch);
-searchInput.addEventListener('keydown', (e) => {
+button.addEventListener('click', handleSearch);
+input.addEventListener('keydown', e => {
   if (e.key === 'Enter') handleSearch();
 });
 
-async function handleSearch() {
-  const word = searchInput.value.trim();
+function handleSearch() {
+  const word = input.value.trim();
   if (!word) return;
 
   resultContainer.innerHTML = `<p>Loading...</p>`;
-  try {
-    const data = await fetchWordData(word);
-    renderWord(data, resultContainer);
-    saveToHistory(word);
-  } catch (err) {
-    resultContainer.innerHTML = `<p class="error">❌ ${err.message}</p>`;
-  }
+
+  fetchWordData(word)
+    .then(data => {
+      renderWord(data, resultContainer);
+      saveToHistory(word);
+    })
+    .catch(err => {
+      resultContainer.innerHTML = `<p class="error">❌ ${err.message}</p>`;
+    });
 }
+
+initThemeToggle(document.getElementById('theme-toggle'), document.body);
+initFontSelector(document.getElementById('fontDropdown'), document.body);
 
 window.playAudio = playAudio;
